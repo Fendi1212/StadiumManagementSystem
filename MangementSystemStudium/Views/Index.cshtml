@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Welcome";
+}
+
+<div class="jumbotron text-center" style="background-color: #1a252f; color: white; padding: 4rem 2rem; margin-top: 20px; border-radius: 8px;">
+    <h1 style="font-weight: 700; letter-spacing: 1px;">STADIUM MANAGEMENT SYSTEM</h1>
+    <p class="lead" style="color: #bdc3c7;">Your all-in-one portal for scheduling stadium events, managing venues, and booking tickets seamlessly.</p>
+    <hr class="my-4" style="border-top: 1px solid #34495e;">
+    <p style="margin-bottom: 25px;">Ready to catch the next match or concert? Explore upcoming events right now.</p>
+    <a class="btn btn-primary btn-lg" href="@Url.Action("Index", "Events")" role="button" style="background-color: #3498db; border: none; padding: 12px 30px; font-weight: 600;">View Live Events</a>
+</div>
+
+<div class="row" style="margin-top: 40px;">
+    <div class="col-md-4 text-center" style="margin-bottom: 20px;">
+        <div style="padding: 25px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
+            <h3 style="color: #2c3e50; font-weight: 600;">📅 Live Schedules</h3>
+            <p class="text-muted">Stay up to date with real-time sports fixtures, concert layouts, and stadium availability tracks.</p>
+        </div>
+    </div>
+    <div class="col-md-4 text-center" style="margin-bottom: 20px;">
+        <div style="padding: 25px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
+            <h3 style="color: #2c3e50; font-weight: 600;">🎟️ Ticket Use-Case</h3>
+            <p class="text-muted">Instantly secure seats for your favorite teams with built-in email validations and customized seat counts.</p>
+        </div>
+    </div>
+    <div class="col-md-4 text-center" style="margin-bottom: 20px;">
+        <div style="padding: 25px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
+            <h3 style="color: #2c3e50; font-weight: 600;">🔐 Secure Portals</h3>
+            <p class="text-muted">Protected by .NET Identity management to keep administrator tasks completely safe and validated.</p>
+        </div>
+    </div>
+</div>

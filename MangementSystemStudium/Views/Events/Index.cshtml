@@ -1,0 +1,78 @@
+﻿@model IEnumerable<MangementSystemStudium.Models.Event>
+
+@{
+    ViewBag.Title = "Events Schedule";
+}
+
+<div style="margin-top: 30px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+        <div>
+            <h2 style="font-weight: 700; color: #2c3e50; margin: 0;">🏟️ Stadium Events Schedule</h2>
+            <p class="text-muted" style="margin: 5px 0 0 0;">Search, view, and manage upcoming stadium fixtures and bookings.</p>
+        </div>
+        <a href="@Url.Action("Create", "Events")" class="btn btn-success" style="background-color: #2ecc71; border: none; padding: 10px 20px; font-weight: 600; border-radius: 6px; box-shadow: 0 4px 6px rgba(46, 204, 113, 0.2);">
+            ➕ Schedule New Event
+        </a>
+    </div>
+
+    <div style="background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 30px; border: 1px solid #e2e8f0;">
+        <h5 style="margin-top: 0; margin-bottom: 15px; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px;">Filter Fixtures</h5>
+
+        @using (Html.BeginForm("Index", "Events", FormMethod.Get, new { @class = "form-inline" }))
+        {
+            <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+                <div style="flex-grow: 1; position: relative;">
+                    @Html.TextBox("searchString", null, new { @class = "form-control", placeholder = "Search by match title, team name, or stadium venue...", style = "width: 100%; max-width: 100%; height: 44px; padding-left: 15px; border-radius: 6px; border: 1px solid #cbd5e1;" })
+                </div>
+                <button type="submit" class="btn btn-primary" style="background-color: #3498db; border: none; height: 44px; padding: 0 25px; font-weight: 600; border-radius: 6px;">
+                    Search
+                </button>
+                <a href="@Url.Action("Index", "Events")" class="btn btn-default" style="height: 44px; line-height: 30px; padding: 0 20px; border-radius: 6px; border: 1px solid #cbd5e1; background: #fff;">
+                    Clear Filter
+                </a>
+            </div>
+        }
+    </div>
+
+    <div style="background: #fff; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); overflow: hidden; border: 1px solid #e2e8f0;">
+        <table class="table" style="margin-bottom: 0; vertical-align: middle;">
+            <thead>
+                <tr style="background-color: #f8f9fa; color: #475569; font-weight: 700; border-bottom: 2px solid #e2e8f0;">
+                    <th style="padding: 15px; font-size: 14px;">Event Title</th>
+                    <th style="padding: 15px; font-size: 14px;">Stadium Venue</th>
+                    <th style="padding: 15px; font-size: 14px;">Scheduled Date</th>
+                    <th style="text-align: right; padding: 15px; font-size: 14px;">Management Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr style="transition: background 0.2s; border-bottom: 1px solid #f1f5f9;">
+                        <td style="padding: 15px; font-weight: 600; color: #1e293b; font-size: 15px;">
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td style="padding: 15px; color: #475569;">
+                            📍 @Html.DisplayFor(modelItem => item.Venue)
+                        </td>
+                        <td style="padding: 15px; color: #475569;">
+                            📅 @item.Date.ToString("yyyy-MM-dd HH:mm")
+                        </td>
+                        <td style="text-align: right; padding: 15px; white-space: nowrap;">
+                            <a href="@Url.Action("Edit", "Events", new { id = item.Id })" class="btn btn-xs btn-default" style="margin-right: 5px; border-color: #cbd5e1; padding: 5px 10px;">Edit</a>
+                            <a href="@Url.Action("Details", "Events", new { id = item.Id })" class="btn btn-xs btn-info" style="margin-right: 5px; background-color: #3498db; border: none; padding: 5px 10px;">Details</a>
+                            <a href="@Url.Action("Delete", "Events", new { id = item.Id })" class="btn btn-xs btn-danger" style="background-color: #e74c3c; border: none; padding: 5px 10px;">Remove</a>
+                        </td>
+                    </tr>
+                }
+                @if (!Model.Any())
+                {
+                    <tr>
+                        <td colspan="4" class="text-center" style="padding: 30px; color: #94a3b8; font-style: italic;">
+                            No matching stadium events found. Try checking your spelling or clear the filter!
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

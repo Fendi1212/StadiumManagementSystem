@@ -1,31 +1,61 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Dashboard";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<div class="jumbotron text-center" style="background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%); color: white; padding: 5rem 2rem; margin-top: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+    <h1 style="font-weight: 800; letter-spacing: 2px; font-size: 48px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">ARENAPULSE</h1>
+    <p class="lead" style="color: #3498db; font-weight: 600; font-size: 20px; margin-top: 10px;">Next-Generation Stadium & Event Management Platform</p>
+    <p style="color: #bdc3c7; max-width: 600px; margin: 15px auto 30px auto; font-size: 15px; line-height: 1.6;">
+        Streamline your venue scheduling, coordinate upcoming fixtures, and handle real-time ticket registrations seamlessly through a secure administrative portal.
+    </p>
+    <div style="display: flex; justify-content: center; gap: 15px;">
+        <a class="btn btn-primary btn-lg" href="@Url.Action("Index", "Events")" role="button" style="background-color: #3498db; border: none; padding: 14px 35px; font-weight: 600; border-radius: 30px; box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3); transition: all 0.3s;">
+            🏟️ View Live Events
+        </a>
+    </div>
+</div>
+
+<div class="text-center" style="margin: 50px 0 30px 0;">
+    <h2 style="font-weight: 700; color: #2c3e50;">Platform Core Features</h2>
+    <p class="text-muted">Everything required to run a high-capacity modern stadium venue efficiently.</p>
 </div>
 
 <div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    <div class="col-md-4" style="margin-bottom: 25px;">
+        <div style="padding: 30px 20px; border: none; border-radius: 12px; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.05); height: 100%; border-top: 4px solid #3498db; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+                <div style="font-size: 40px; margin-bottom: 15px;">📅</div>
+                <h4 style="color: #2c3e50; font-weight: 700; margin-bottom: 12px;">Live Schedules</h4>
+                <p class="text-muted" style="font-size: 14px; line-height: 1.6; margin-bottom: 20px;">Stay up to date with real-time sports fixtures, stadium availability tracks, and automated match-day assignments.</p>
+            </div>
+            <a href="@Url.Action("Index", "Events")" style="color: #3498db; font-weight: 600; text-decoration: none;">Go to Schedules &rarr;</a>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+
+    <div class="col-md-4" style="margin-bottom: 25px;">
+        <div style="padding: 30px 20px; border: none; border-radius: 12px; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.05); height: 100%; border-top: 4px solid #2ecc71; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+                <div style="font-size: 40px; margin-bottom: 15px;">🎟️</div>
+                <h4 style="color: #2c3e50; font-weight: 700; margin-bottom: 12px;">Ticket Management</h4>
+                <p class="text-muted" style="font-size: 14px; line-height: 1.6; margin-bottom: 20px;">Instantly secure available match seats for upcoming fixtures with integrated customer email matching and seat allocation logic.</p>
+            </div>
+            <a href="@Url.Action("Index", "Events")" style="color: #2ecc71; font-weight: 600; text-decoration: none;">Book Tickets Now &rarr;</a>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+
+    <div class="col-md-4" style="margin-bottom: 25px;">
+        <div style="padding: 30px 20px; border: none; border-radius: 12px; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.05); height: 100%; border-top: 4px solid #e74c3c; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+                <div style="font-size: 40px; margin-bottom: 15px;">🔐</div>
+                <h4 style="color: #2c3e50; font-weight: 700; margin-bottom: 12px;">Admin Identity</h4>
+                <p class="text-muted" style="font-size: 14px; line-height: 1.6; margin-bottom: 20px;">Protected by role-based identity management configurations, ensuring administrative tasks remain highly secure and validated.</p>
+            </div>
+            <a href="@Url.Action("Login", "Account")" style="color: #e74c3c; font-weight: 600; text-decoration: none;">Gatekeeper Access &rarr;</a>
+        </div>
     </div>
+</div>
+
+<div class="text-center" style="margin: 40px 0; padding: 25px; background-color: #f8f9fa; border-radius: 8px; border: 1px dashed #cbd5e1;">
+    <span style="font-size: 15px; color: #64748b; font-weight: 500;">Looking for operational modifications?</span>
+    <a href="@Url.Action("Index", "Events")" style="color: #3498db; font-weight: 600; margin-left: 10px; text-decoration: none;">Go to Events Dashboard &rarr;</a>
 </div>
