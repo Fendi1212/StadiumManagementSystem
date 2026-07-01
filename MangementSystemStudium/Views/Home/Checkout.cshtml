@@ -1,0 +1,92 @@
+﻿@{
+    ViewBag.Title = "Secure Checkout";
+}
+
+<div class="container" style="margin-top: 50px; margin-bottom: 50px; font-family: 'Segoe UI', Tahoma, sans-serif;">
+    <div class="row">
+        <!-- Left Side Column: Order Summary Review Card -->
+        <div class="col-md-5" style="margin-bottom: 30px;">
+            <div style="background: #1e293b; color: #ffffff; border-radius: 16px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+                <h3 style="color: #ffd700; font-weight: 700; margin-top: 0; margin-bottom: 20px; text-transform: uppercase; font-size: 1.4rem;">🎯 Selection Summary</h3>
+                <hr style="border-color: rgba(255,255,255,0.1);" />
+
+                <div style="margin-bottom: 15px;">
+                    <small style="color: #94a3b8; display: block; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;">Fixture Match</small>
+                    <span style="font-size: 1.2rem; font-weight: 600;">@ViewBag.Match</span>
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <small style="color: #94a3b8; display: block; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;">Arena Stadium Location</small>
+                    <span style="font-size: 1.1rem;">@ViewBag.Venue</span>
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <small style="color: #94a3b8; display: block; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;">Pass Allocation Tier</small>
+                    <span style="font-size: 1.1rem; color: #38bdf8; font-weight: 600;">@ViewBag.Category</span>
+                </div>
+
+                <hr style="border-color: rgba(255,255,255,0.1);" />
+                <div style="display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: 700;">
+                    <span>Estimated Cost:</span>
+                    <span style="color: #4ade80;">$150.00 USD <small style="font-weight: 400; font-size: 0.8rem; color: #cbd5e1;">/ pass</small></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side Column: User Information Capture Form -->
+        <div class="col-md-7">
+            <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                <h2 style="margin-top: 0; margin-bottom: 5px; font-weight: 800; color: #0f172a;">Complete Your Registration</h2>
+                <p style="color: #64748b; margin-bottom: 30px;">Provide legal confirmation credentials below to issue secure ticketing entry access tokens.</p>
+
+                <!-- Mock Form posting straight to an internal route alert action -->
+                <form action="@Url.Action("Index", "Home")" method="get" onsubmit="alert('🎉 Ticket Registration Successful! Your secure entrance barcodes have been processed and dispatched to your email.');">
+
+                    <h4 style="font-weight: 700; color: #334155; margin-bottom: 15px; border-left: 4px solid #2563eb; padding-left: 10px;">1. Attendee Identification</h4>
+                    <div class="row">
+                        <div class="col-md-6" style="margin-bottom: 15px;">
+                            <label style="font-weight: 600; color: #475569; font-size: 0.9rem;">Full Name</label>
+                            <input type="text" required class="form-control" placeholder="John Doe" style="padding: 12px; border-radius: 8px;" />
+                        </div>
+                        <div class="col-md-6" style="margin-bottom: 15px;">
+                            <label style="font-weight: 600; color: #475569; font-size: 0.9rem;">Email Address</label>
+                            <input type="email" required class="form-control" placeholder="johndoe@example.com" style="padding: 12px; border-radius: 8px;" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6" style="margin-bottom: 25px;">
+                            <label style="font-weight: 600; color: #475569; font-size: 0.9rem;">Pass Passes Quantity</label>
+                            <input type="number" required min="1" max="10" value="1" class="form-control" style="padding: 12px; border-radius: 8px;" />
+                        </div>
+                    </div>
+
+                    <h4 style="font-weight: 700; color: #334155; margin-bottom: 15px; border-left: 4px solid #2563eb; padding-left: 10px;">2. Payment Verification Gate</h4>
+                    <div class="row">
+                        <div class="col-md-12" style="margin-bottom: 15px;">
+                            <label style="font-weight: 600; color: #475569; font-size: 0.9rem;">Cardholder Full Name</label>
+                            <input type="text" required class="form-control" placeholder="John Doe" style="padding: 12px; border-radius: 8px;" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6" style="margin-bottom: 15px;">
+                            <label style="font-weight: 600; color: #475569; font-size: 0.9rem;">Debit/Credit Card Number</label>
+                            <input type="text" required class="form-control" placeholder="4111 2222 3333 4444" style="padding: 12px; border-radius: 8px;" />
+                        </div>
+                        <div class="col-md-3" style="margin-bottom: 15px;">
+                            <label style="font-weight: 600; color: #475569; font-size: 0.9rem;">Expiry Date</label>
+                            <input type="text" required class="form-control" placeholder="MM/YY" style="padding: 12px; border-radius: 8px;" />
+                        </div>
+                        <div class="col-md-3" style="margin-bottom: 15px;">
+                            <label style="font-weight: 600; color: #475569; font-size: 0.9rem;">Security CVV</label>
+                            <input type="password" required maxlength="3" class="form-control" placeholder="***" style="padding: 12px; border-radius: 8px;" />
+                        </div>
+                    </div>
+
+                    <button type="submit" style="margin-top: 20px; width: 100%; background: #2563eb; color: #ffffff; font-weight: 700; font-size: 1.2rem; border: none; padding: 15px; border-radius: 8px; box-shadow: 0 4px 15px rgba(37,99,235,0.3); cursor: pointer;">
+                        Authorize Payment & Secure Tickets 🔐
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
